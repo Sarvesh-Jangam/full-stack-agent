@@ -6,7 +6,8 @@ Handles JWT, OAuth, and security settings.
 import os
 import secrets
 from typing import Optional, Dict, Any, List
-from pydantic import BaseSettings, Field, validator
+from pydantic_settings import BaseSettings
+from pydantic import Field, validator
 from cryptography.fernet import Fernet
 
 class AuthConfig(BaseSettings):

@@ -6,7 +6,9 @@ Handles database connection settings and configuration.
 import os
 from typing import Optional, Dict, Any
 from urllib.parse import urlparse
-from pydantic import BaseSettings, Field, validator
+from pydantic_settings import BaseSettings
+from pydantic import Field, validator
+
 
 class DatabaseConfig(BaseSettings):
     """Database configuration settings"""

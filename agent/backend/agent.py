@@ -15,10 +15,12 @@ from google.adk.sessions import InMemorySessionService, VertexAiSessionService
 from google.genai import types
 from pydantic import BaseModel, Field
 
-from .tools.database_tools import DatabaseTool
-from .tools.api_tools import APIIntegrationTool
-from .tools.auth_tools import AuthenticationTool
-from .tools.file_tools import FileProcessingTool
+# Import the tool factory functions instead of the classes
+from .tools.database_tools import create_database_tools
+from .tools.api_tools import create_api_tools
+from .tools.auth_tools import create_auth_tools
+from .tools.file_tools import create_file_tools
+
 from .config.database import DatabaseConfig
 from .config.auth_config import AuthConfig
 from .config.api_config import APIConfig
@@ -56,11 +58,14 @@ db_config = DatabaseConfig()
 auth_config = AuthConfig()
 api_config = APIConfig()
 
-# Initialize tools
-database_tool = DatabaseTool(db_config)
-api_tool = APIIntegrationTool(api_config)
-auth_tool = AuthenticationTool(auth_config)
-file_tool = FileProcessingTool()
+# Create the tools using the factory functions
+database_tools = create_database_tools(db_config)
+api_tools = create_api_tools(api_config)
+auth_tools = create_auth_tools(auth_config)
+file_tools = create_file_tools()
+
+# Combine all the tool functions into a single list
+all_tools = database_tools + api_tools + auth_tools + file_tools
 
 # Define the backend agent
 backend_agent = Agent(
@@ -118,7 +123,7 @@ backend_agent = Agent(
     For authentication, follow OAuth 2.0 and JWT best practices.
     For file processing, validate file types and sizes before processing.
     """,
-    tools=[database_tool, api_tool, auth_tool, file_tool],
+    tools=all_tools, # Pass the combined list of callable tool functions
     input_schema=BackendAgentRequest,
     output_key="backend_result"
 )
@@ -234,12 +239,17 @@ class BackendAgentRunner:
     def health_check(self) -> Dict[str, Any]:
         """Perform health check on the backend agent"""
         try:
+            # Re-initialize tools for health check to ensure configs are fresh
+            db_tool = DatabaseTool(DatabaseConfig())
+            api_tool = APIIntegrationTool(APIConfig())
+            auth_tool = AuthenticationTool(AuthConfig())
+            file_tool = FileProcessingTool()
             return {
                 "status": "healthy",
                 "agent_name": backend_agent.name,
                 "tools_count": len(backend_agent.tools),
                 "timestamp": datetime.utcnow().isoformat(),
-                "database_status": database_tool.health_check(),
+                "database_status": db_tool.health_check(),
                 "api_status": api_tool.health_check(),
                 "auth_status": auth_tool.health_check(),
                 "file_status": file_tool.health_check()
@@ -268,7 +278,7 @@ def get_backend_agent_info() -> Dict[str, Any]:
         "name": backend_agent.name,
         "description": backend_agent.description,
         "model": str(backend_agent.model),
-        "tools": [tool.__class__.__name__ for tool in backend_agent.tools],
+        "tools": [tool.__name__ for tool in backend_agent.tools],
         "version": "1.0.0"
     }
 

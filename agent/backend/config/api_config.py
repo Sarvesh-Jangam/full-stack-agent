@@ -5,7 +5,9 @@ Handles external API integration settings.
 
 import os
 from typing import Optional, Dict, Any, List
-from pydantic import BaseSettings, Field, validator, HttpUrl
+from pydantic_settings import BaseSettings
+from pydantic import Field, validator , HttpUrl
+
 
 class APIConfig(BaseSettings):
     """API integration configuration settings"""
