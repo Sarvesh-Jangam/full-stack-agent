@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 from enum import Enum
 from pydantic import BaseModel, Field
 import json
-
+from .config import ManagerAgentConfig
 logger = logging.getLogger(__name__)
 
 class AgentStatus(str, Enum):
@@ -70,34 +70,51 @@ class WorkflowState(BaseModel):
     last_updated: datetime = Field(default_factory=datetime.utcnow)
 
 class CoordinationTool:
-    """Tool for coordinating tasks between multiple agents"""
-    
-    def __init__(self):
-        self.active_workflows: Dict[str, WorkflowState] = {}
-        self.task_queue: Dict[str, List[AgentTask]] = {
-            "frontend": [],
-            "backend": [],
-            "deployment": []
-        }
-        self.task_history: List[AgentTask] = []
-        self.agent_capabilities = {
-            "frontend": [
-                "html_generation", "css_styling", "javascript_development",
-                "ui_design", "responsive_design", "component_creation",
-                "form_creation", "dashboard_creation", "landing_page_design"
-            ],
-            "backend": [
-                "api_development", "database_operations", "authentication",
-                "file_processing", "data_validation", "business_logic",
-                "integration_services", "security_implementation"
-            ],
-            "deployment": [
-                "cloud_deployment", "containerization", "ci_cd_setup",
-                "monitoring_setup", "infrastructure_management", 
-                "performance_optimization", "security_configuration"
-            ]
-        }
+    """Handles delegation of tasks to specialist agents."""
+
+    def __init__(self, config: ManagerAgentConfig):
+        """
+        Initializes the CoordinationTool with a configuration.
+
+        Args:
+            config: The configuration object for the manager agent.
+        """
+        self.config = config
+        # In a real app, you would have clients to communicate with other agents
+        # self.frontend_agent_client = ...
+        # self.backend_agent_client = ...
         logger.info("Coordination tool initialized")
+
+    async def delegate_task(self, agent_name: str, task: str, dependencies: Dict[str, Any] = None) -> Dict[str, Any]:
+        """
+        Delegates a task to a specified agent.
+        """
+        logger.info(f"Delegating task '{task}' to agent '{agent_name}'")
+
+        # Mock delegation
+        if agent_name not in self.config.specialist_agents:
+            return {"status": "error", "message": f"Agent '{agent_name}' not found."}
+
+        # Simulate calling the agent and getting a result
+        await asyncio.sleep(2) # Simulate network latency
+        artifact = f"artifact_for_{task.replace(' ', '_')}.txt"
+
+        return {
+            "status": "completed",
+            "agent": agent_name,
+            "task": task,
+            "artifact_id": artifact,
+            "message": f"Task '{task}' completed by '{agent_name}'."
+        }
+
+    async def get_agent_status(self, agent_name: str) -> Dict[str, Any]:
+        """
+        Checks the status of a specialist agent.
+        """
+        if agent_name not in self.config.specialist_agents:
+            return {"status": "error", "message": f"Agent '{agent_name}' not found."}
+
+        return {"agent": agent_name, "status": "idle", "health": "ok"}
 
     async def create_workflow(self, workflow_id: str) -> WorkflowState:
         """Create a new workflow instance"""

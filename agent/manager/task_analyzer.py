@@ -9,7 +9,7 @@ from typing import Dict, Any, List, Optional, Set
 from datetime import datetime
 from enum import Enum
 from pydantic import BaseModel, Field
-
+from .config import ManagerAgentConfig
 logger = logging.getLogger(__name__)
 
 class TaskType(str, Enum):
@@ -47,80 +47,63 @@ class AnalysisResult(BaseModel):
     success_criteria: List[str] = Field(..., description="Success criteria")
 
 class TaskAnalyzer:
-    """Analyzes user requirements and creates structured task breakdown"""
-    
-    def __init__(self):
-        self.frontend_keywords = {
-            'ui', 'interface', 'design', 'html', 'css', 'javascript', 'react', 'vue', 
-            'frontend', 'responsive', 'mobile', 'dashboard', 'form', 'button', 'layout',
-            'theme', 'styling', 'animation', 'component', 'page', 'website', 'web app'
-        }
-        
-        self.backend_keywords = {
-            'api', 'database', 'server', 'backend', 'authentication', 'auth', 'login',
-            'data', 'storage', 'crud', 'rest', 'graphql', 'endpoint', 'service',
-            'business logic', 'validation', 'security', 'jwt', 'oauth', 'session',
-            'file upload', 'processing', 'integration', 'webhook', 'notification'
-        }
-        
-        self.deployment_keywords = {
-            'deploy', 'deployment', 'hosting', 'server', 'cloud', 'docker', 'kubernetes',
-            'aws', 'azure', 'gcp', 'heroku', 'vercel', 'netlify', 'ci/cd', 'pipeline',
-            'production', 'staging', 'environment', 'monitoring', 'logging', 'scaling'
-        }
-        
+    """Analyzes high-level tasks and breaks them down into smaller steps."""
+
+    def __init__(self, config: ManagerAgentConfig):
+        """
+        Initializes the TaskAnalyzer with a configuration.
+
+        Args:
+            config: The configuration object for the manager agent.
+        """
+        self.config = config
         logger.info("Task Analyzer initialized")
 
-    async def analyze_requirements(self, user_input: str) -> AnalysisResult:
+    async def analyze_task_requirements(self, task_description: str) -> Dict[str, Any]:
         """
-        Analyze user requirements and create structured breakdown
-        
-        Args:
-            user_input: Raw user requirements/prompt
-            
-        Returns:
-            AnalysisResult with structured task breakdown
+        Analyzes the task description and breaks it down.
+        In a real scenario, this would involve an LLM call.
         """
-        try:
-            logger.info("Analyzing user requirements")
-            
-            # Clean and preprocess input
-            cleaned_input = self._preprocess_input(user_input)
-            
-            # Determine user intent and project type
-            user_intent = self._extract_user_intent(cleaned_input)
-            project_type = self._determine_project_type(cleaned_input)
-            
-            # Identify required agents
-            required_agents = self._identify_required_agents(cleaned_input)
-            
-            # Break down into specific requirements
-            requirements = self._break_down_requirements(cleaned_input, required_agents)
-            
-            # Define workflow stages
-            workflow_stages = self._define_workflow_stages(requirements, required_agents)
-            
-            # Estimate duration
-            estimated_duration = self._estimate_duration(requirements)
-            
-            # Define success criteria
-            success_criteria = self._define_success_criteria(user_intent, requirements)
-            
-            result = AnalysisResult(
-                user_intent=user_intent,
-                project_type=project_type,
-                requirements=requirements,
-                workflow_stages=workflow_stages,
-                estimated_duration=estimated_duration,
-                success_criteria=success_criteria
-            )
-            
-            logger.info(f"Requirements analysis completed: {len(requirements)} requirements identified")
-            return result
-            
-        except Exception as e:
-            logger.error(f"Requirements analysis failed: {str(e)}")
-            raise
+        logger.info(f"Analyzing task: {task_description}")
+
+        # Mock analysis based on keywords
+        if "frontend" in task_description.lower() and "backend" in task_description.lower():
+            plan = {
+                "steps": [
+                    {"step": 1, "agent": "backend", "task": "Design database schema"},
+                    {"step": 2, "agent": "backend", "task": "Create API endpoints"},
+                    {"step": 3, "agent": "frontend", "task": "Build UI components"},
+                    {"step": 4, "agent": "frontend", "task": "Connect UI to backend API"},
+                    {"step": 5, "agent": "manager", "task": "Run integration tests"}
+                ],
+                "artifacts": ["database_schema.sql", "api_spec.yaml", "component_library.js", "final_app.zip"],
+                "dependencies": {
+                    "3": [1, 2],
+                    "4": [2, 3],
+                    "5": [4]
+                }
+            }
+        elif "frontend" in task_description.lower():
+            plan = {
+                "steps": [
+                    {"step": 1, "agent": "frontend", "task": "Build UI components"},
+                    {"step": 2, "agent": "frontend", "task": "Implement UI logic"}
+                ],
+                "artifacts": ["ui_components.js", "app.js"],
+                "dependencies": {}
+            }
+        else:
+            plan = {
+                "steps": [{"step": 1, "agent": "backend", "task": "Perform backend task"}],
+                "artifacts": ["backend_result.json"],
+                "dependencies": {}
+            }
+
+        return {
+            "status": "success",
+            "plan": plan,
+            "message": "Task analysis complete."
+        }
 
     def _preprocess_input(self, user_input: str) -> str:
         """Clean and preprocess user input"""

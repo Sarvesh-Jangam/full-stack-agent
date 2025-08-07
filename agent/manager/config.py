@@ -5,7 +5,8 @@ Manages settings and configuration for the multi-agent workflow system.
 
 import os
 from typing import Dict, Any, List, Optional
-from pydantic import BaseSettings, Field, validator
+from pydantic_settings import BaseSettings
+from pydantic import Field, validator
 from datetime import timedelta
 
 class ManagerAgentConfig(BaseSettings):

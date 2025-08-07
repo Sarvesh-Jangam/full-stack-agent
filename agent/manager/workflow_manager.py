@@ -9,6 +9,10 @@ from typing import Dict, Any, List, Optional, Tuple
 from datetime import datetime, timedelta
 from enum import Enum
 from pydantic import BaseModel, Field
+import uuid
+
+
+from google.adk.runners import Runner
 
 from .task_analyzer import TaskAnalyzer, AnalysisResult, TaskRequirement
 from .coordination_tools import CoordinationTool, AgentTask, AgentResponse, WorkflowState
@@ -25,28 +29,120 @@ class WorkflowPhase(str, Enum):
     COMPLETION = "completion"
 
 class IterationResult(BaseModel):
-    """Result of a workflow iteration"""
-    iteration_number: int = Field(..., description="Iteration number")
-    phase: WorkflowPhase = Field(..., description="Current workflow phase")
-    tasks_completed: List[str] = Field(..., description="Completed tasks in this iteration")
-    artifacts_generated: Dict[str, List[str]] = Field(..., description="Generated artifacts by agent")
-    validation_score: float = Field(..., description="Validation score (0-1)")
-    user_feedback: str = Field("", description="User feedback for this iteration")
-    refinements_needed: List[str] = Field(..., description="Required refinements")
-    next_actions: List[str] = Field(..., description="Next actions to take")
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
+    workflow_id: str
+    status: str
+    message: str
+    next_actions: List[str] = Field(default_factory=list)
+    artifacts: Dict[str, Any] = Field(default_factory=dict)
+    validation_score: float = 0.0
+    progress_percentage: int = 0
+
+class WorkflowState(BaseModel):
+    workflow_id: str
+    task_description: str
+    plan: Dict[str, Any] = Field(default_factory=dict)
+    completed_steps: List[int] = Field(default_factory=list)
+    artifacts: Dict[str, Any] = Field(default_factory=dict)
+    status: str = "pending"
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+    updated_at: datetime = Field(default_factory=datetime.utcnow)
 
 class WorkflowManager:
-    """Manages multi-agent workflows with iterative refinement"""
-    
-    def __init__(self):
-        self.task_analyzer = TaskAnalyzer()
-        self.coordination_tool = CoordinationTool()
-        self.validation_tool = ValidationTool()
-        self.active_workflows: Dict[str, Dict[str, Any]] = {}
-        self.max_iterations = 5
-        self.validation_threshold = 0.8
+    """Manages the lifecycle of a development workflow."""
+
+    def __init__(self, runner: Runner):
+        """
+        Initializes the WorkflowManager.
+
+        Args:
+            runner: The ADK Runner instance to interact with the agent.
+        """
+        self.runner = runner
+        self.workflows: Dict[str, WorkflowState] = {}
         logger.info("Workflow Manager initialized")
+
+    async def start_new_workflow(self, task_description: str) -> IterationResult:
+        """Creates and starts a new workflow."""
+        workflow_id = str(uuid.uuid4())
+        state = WorkflowState(workflow_id=workflow_id, task_description=task_description)
+        self.workflows[workflow_id] = state
+        logger.info(f"Started new workflow {workflow_id} for task: {task_description}")
+        return await self.run_iteration(workflow_id)
+
+    async def run_iteration(self, workflow_id: str) -> IterationResult:
+        """Runs the next logical step in the workflow."""
+        if workflow_id not in self.workflows:
+            raise ValueError(f"Workflow {workflow_id} not found.")
+
+        state = self.workflows[workflow_id]
+        state.updated_at = datetime.utcnow()
+
+        # 1. Analyze task if no plan exists
+        if not state.plan:
+            logger.info(f"[{workflow_id}] Analyzing task...")
+            # This would be a call to the TaskAnalyzer tool via the agent
+            # For now, we mock the result
+            analysis_result = {
+                "plan": {
+                    "steps": [
+                        {"step": 1, "agent": "backend", "task": "Setup database"},
+                        {"step": 2, "agent": "frontend", "task": "Create UI mockups"},
+                    ]
+                }
+            }
+            state.plan = analysis_result["plan"]
+            state.status = "planning_complete"
+            return IterationResult(
+                workflow_id=workflow_id,
+                status="planning_complete",
+                message="Task analyzed. Plan created.",
+                next_actions=["delegate_next_task"],
+                progress_percentage=10
+            )
+
+        # 2. Find and delegate the next task
+        next_step = self._get_next_step(state)
+        if next_step:
+            logger.info(f"[{workflow_id}] Delegating step {next_step['step']}: {next_step['task']}")
+            # This would be a call to the CoordinationTool via the agent
+            # For now, we mock the result
+            delegation_result = {
+                "status": "completed",
+                "artifact_id": f"artifact_step_{next_step['step']}.txt"
+            }
+            state.completed_steps.append(next_step['step'])
+            state.artifacts[f"step_{next_step['step']}"] = delegation_result["artifact_id"]
+            state.status = f"step_{next_step['step']}_complete"
+            progress = int((len(state.completed_steps) / len(state.plan.get("steps", []))) * 100)
+
+            return IterationResult(
+                workflow_id=workflow_id,
+                status=state.status,
+                message=f"Step {next_step['step']} completed.",
+                artifacts=state.artifacts,
+                next_actions=["delegate_next_task", "validate_artifacts"],
+                progress_percentage=progress
+            )
+
+        # 3. If all steps are done, finalize
+        state.status = "completed"
+        logger.info(f"[{workflow_id}] Workflow completed.")
+        return IterationResult(
+            workflow_id=workflow_id,
+            status="completed",
+            message="All workflow steps completed successfully.",
+            artifacts=state.artifacts,
+            progress_percentage=100
+        )
+
+    def _get_next_step(self, state: WorkflowState) -> Optional[Dict[str, Any]]:
+        """Determines the next step to execute based on the plan and completed steps."""
+        all_steps = state.plan.get("steps", [])
+        for step in all_steps:
+            if step["step"] not in state.completed_steps:
+                # In a real app, you would also check dependencies here
+                return step
+        return None
 
     async def start_workflow(self, 
                            workflow_id: str,

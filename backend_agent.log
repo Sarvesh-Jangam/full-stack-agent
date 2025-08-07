@@ -1,0 +1,85 @@
+2025-08-07 13:30:09,349 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-07 13:30:09,350 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-07 13:30:09,350 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-07 13:30:09,351 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-07 13:30:09,351 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-07 13:30:09,352 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-07 13:32:08,263 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-07 13:32:08,266 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-07 13:32:08,266 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-07 13:32:08,266 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-07 13:32:08,267 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-07 13:32:08,267 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-07 13:32:08,321 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-07 13:32:08,322 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-07 13:32:08,322 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-07 13:32:08,322 - agent.manager.workflow_manager - INFO - Workflow Manager initialized
+2025-08-07 13:32:08,323 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-07 13:32:08,323 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-07 13:32:08,324 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-07 13:32:08,325 - agent.manager.agent - INFO - Manager Agent Tool initialized
+2025-08-07 13:32:08,326 - agent.manager.agent - INFO - Manager Agent Runner initialized with app_name: manager_agent_app
+2025-08-07 13:32:08,329 - agent.manager.agent - INFO - Processing manager request: start_workflow for user: default_user
+2025-08-07 13:32:08,331 - agent.manager.agent - ERROR - Error processing manager request: Session not found: default_session
+2025-08-07 13:34:38,963 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-07 13:34:38,963 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-07 13:34:38,963 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-07 13:34:38,963 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-07 13:34:38,964 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-07 13:34:38,964 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-07 13:34:38,990 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-07 13:34:38,991 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-07 13:34:38,991 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-07 13:34:38,991 - agent.manager.workflow_manager - INFO - Workflow Manager initialized
+2025-08-07 13:34:38,992 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-07 13:34:38,992 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-07 13:34:38,992 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-07 13:34:38,993 - agent.manager.agent - INFO - Manager Agent Tool initialized
+2025-08-07 13:34:38,993 - agent.manager.agent - INFO - Manager Agent Runner initialized with app_name: manager_agent_app
+2025-08-07 13:37:34,672 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-07 13:37:34,672 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-07 13:37:34,673 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-07 13:37:34,673 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-07 13:37:34,674 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-07 13:37:34,674 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-07 13:50:48,574 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-07 13:50:48,575 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-07 13:50:48,575 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-07 13:50:48,576 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-07 13:50:48,576 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-07 13:50:48,577 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-07 13:50:48,639 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-07 13:50:48,639 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-07 13:50:48,640 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-07 13:55:14,564 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-07 13:55:14,565 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-07 13:55:14,565 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-07 13:55:14,566 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-07 13:55:14,567 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-07 13:55:14,568 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-07 13:55:14,637 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-07 13:55:14,638 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-07 13:55:14,638 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-07 13:55:14,639 - agent.manager.workflow_manager - INFO - Workflow Manager initialized
+2025-08-07 13:55:14,639 - agent.manager.agent - INFO - Manager Agent Runner initialized with app_name: manager_agent_app
+2025-08-07 13:55:14,641 - agent.manager.agent - INFO - Session created: default_session for user: default_user
+2025-08-07 13:55:14,641 - agent.manager.agent - INFO - Processing manager request: start_workflow for user: default_user
+2025-08-07 13:55:14,642 - agent.manager.workflow_manager - INFO - Started new workflow d9656816-6244-42bf-9d55-889e481b287d for task: Create a full-stack web application.
+2025-08-07 13:55:14,642 - agent.manager.workflow_manager - INFO - [d9656816-6244-42bf-9d55-889e481b287d] Analyzing task...
+2025-08-07 13:55:14,643 - agent.manager.agent - ERROR - Error processing manager request: 'InMemorySessionService' object has no attribute 'update_session'
+2025-08-07 13:57:31,387 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-07 13:57:31,387 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-07 13:57:31,387 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-07 13:57:31,388 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-07 13:57:31,388 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-07 13:57:31,389 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-07 13:57:31,448 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-07 13:57:31,449 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-07 13:57:31,449 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-07 13:57:31,450 - agent.manager.workflow_manager - INFO - Workflow Manager initialized
+2025-08-07 13:57:31,450 - agent.manager.agent - INFO - Manager Agent Runner initialized with app_name: manager_agent_app
+2025-08-07 13:57:31,453 - agent.manager.agent - INFO - Session created: default_session for user: default_user
+2025-08-07 13:57:31,453 - agent.manager.agent - INFO - Processing manager request: start_workflow for user: default_user
+2025-08-07 13:57:31,454 - agent.manager.workflow_manager - INFO - Started new workflow 70e469cc-becd-4110-879a-dec1dc37036e for task: Create a full-stack web application.
+2025-08-07 13:57:31,455 - agent.manager.workflow_manager - INFO - [70e469cc-becd-4110-879a-dec1dc37036e] Analyzing task...
+2025-08-07 13:57:31,455 - agent.manager.agent - ERROR - Error processing manager request: 'InMemorySessionService' object has no attribute 'update_session_state'

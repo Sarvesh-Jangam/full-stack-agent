@@ -3,7 +3,7 @@ Init file for agent package.
 Exposes all sub-agents: frontend, backend, deployment, manager, etc.
 """
 
-from .frontend.agent import frontend_agent
+from .frontend.agent import root_agent
 from .backend.agent import backend_agent
 # from .deployment.agent import deployment_agent
 from .manager.agent import manager_agent
@@ -17,7 +17,7 @@ __all__ = [
 
 # Optional: For default/easy access, set a mapping by agent name
 AGENTS = {
-    "frontend": frontend_agent,
+    "frontend": root_agent,
     "backend": backend_agent,
     # "deployment": deployment_agent,
     "manager": manager_agent,

@@ -9,7 +9,7 @@ import asyncio
 from typing import Dict, Any, List, Optional, Tuple
 from datetime import datetime
 from pydantic import BaseModel, Field
-
+from .config import ManagerAgentConfig
 logger = logging.getLogger(__name__)
 
 class ValidationCriteria(BaseModel):
@@ -29,18 +29,55 @@ class ValidationResult(BaseModel):
     details: Dict[str, Any] = Field(default_factory=dict, description="Detailed validation info")
 
 class ValidationTool:
-    """Tool for validating workflow results and quality"""
-    
-    def __init__(self):
-        self.validation_criteria = self._initialize_validation_criteria()
-        self.quality_thresholds = {
-            "excellent": 0.9,
-            "good": 0.8,
-            "acceptable": 0.7,
-            "needs_improvement": 0.6,
-            "poor": 0.0
-        }
+    """Validates artifacts produced by specialist agents."""
+
+    def __init__(self, config: ManagerAgentConfig):
+        """
+        Initializes the ValidationTool with a configuration.
+
+        Args:
+            config: The configuration object for the manager agent.
+        """
+        self.config = config
         logger.info("Validation tool initialized")
+
+    async def validate_artifact(self, artifact_id: str, validation_criteria: str) -> Dict[str, Any]:
+        """
+        Validates a given artifact against specified criteria.
+        """
+        logger.info(f"Validating artifact '{artifact_id}' with criteria: {validation_criteria}")
+
+        # Mock validation
+        if "error" in artifact_id:
+            score = 0.2
+            message = "Validation failed: Artifact contains errors."
+        else:
+            score = 0.95
+            message = "Validation successful."
+
+        return {
+            "artifact_id": artifact_id,
+            "validation_score": score,
+            "is_valid": score > self.config.validation_threshold,
+            "message": message
+        }
+
+    async def run_integration_tests(self) -> Dict[str, Any]:
+        """
+        Runs integration tests on the completed application.
+        """
+        logger.info("Running integration tests...")
+        # Mock integration test run
+        await asyncio.sleep(3) # Simulate test execution time
+
+        return {
+            "status": "success",
+            "tests_passed": 128,
+            "tests_failed": 2,
+            "coverage": "88%",
+            "message": "Integration tests completed with minor failures."
+        }
+
 
     def _initialize_validation_criteria(self) -> Dict[str, ValidationCriteria]:
         """Initialize validation criteria for different aspects"""
