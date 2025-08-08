@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Stack Agent Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glow-shadow {
+            box-shadow: 0 0 15px rgba(79, 70, 229, 0.4), 0 0 5px rgba(79, 70, 229, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen">
+
+    <div class="w-full max-w-2xl mx-auto p-8 bg-gray-800 rounded-2xl shadow-lg border border-gray-700">
+        
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-indigo-400">Full-Stack Agent</h1>
+            <p class="text-gray-400 mt-2">Enter a high-level goal, and the agent will start the development workflow.</p>
+        </div>
+
+        <!-- Input Form -->
+        <form id="agent-form" class="space-y-6">
+            <div>
+                <label for="task-input" class="block text-sm font-medium text-gray-300 mb-2">Your Task:</label>
+                <textarea id="task-input" rows="4" class="w-full p-4 bg-gray-900 border border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200" placeholder="e.g., 'Build a blog with a Python backend and a React frontend.'"></textarea>
+            </div>
+            <button type="submit" id="submit-button" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 glow-shadow flex items-center justify-center">
+                <svg id="icon-send" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-send-fill mr-2" viewBox="0 0 16 16">
+                    <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+                </svg>
+                <svg id="icon-loading" class="animate-spin mr-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span id="button-text">Start Workflow</span>
+            </button>
+        </form>
+
+        <!-- Output Area -->
+        <div id="output-container" class="mt-8 pt-6 border-t border-gray-700 hidden">
+            <h2 class="text-xl font-semibold text-gray-300 mb-4">Agent Response:</h2>
+            <pre id="agent-output" class="w-full p-4 bg-gray-900 border border-gray-600 rounded-lg text-sm whitespace-pre-wrap word-wrap: break-word;"></pre>
+        </div>
+
+    </div>
+
+    <script>
+        const agentForm = document.getElementById('agent-form');
+        const taskInput = document.getElementById('task-input');
+        const outputContainer = document.getElementById('output-container');
+        const agentOutput = document.getElementById('agent-output');
+        const submitButton = document.getElementById('submit-button');
+        const buttonText = document.getElementById('button-text');
+        const iconSend = document.getElementById('icon-send');
+        const iconLoading = document.getElementById('icon-loading');
+
+        agentForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const taskDescription = taskInput.value.trim();
+            if (!taskDescription) {
+                alert('Please enter a task description.');
+                return;
+            }
+
+            // --- UI Loading State ---
+            submitButton.disabled = true;
+            buttonText.textContent = 'Processing...';
+            iconSend.classList.add('hidden');
+            iconLoading.classList.remove('hidden');
+            outputContainer.classList.add('hidden');
+
+            try {
+                // --- API Call ---
+                const response = await fetch('http://127.0.0.1:8000/workflow/start', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        task_description: taskDescription,
+                        // You can dynamically set these if you have user accounts
+                        user_id: `user-${Date.now()}`, 
+                        session_id: `session-${Date.now()}`
+                    }),
+                });
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    // If the server returns an error (like 500), it will be in result.detail
+                    throw new Error(result.detail || 'An unknown error occurred.');
+                }
+
+                // --- Display a successful response ---
+                agentOutput.textContent = JSON.stringify(result, null, 2);
+                agentOutput.classList.remove('text-red-400');
+
+            } catch (error) {
+                // --- Display an error message ---
+                agentOutput.textContent = `Error: ${error.message}`;
+                agentOutput.classList.add('text-red-400');
+                console.error('Error starting workflow:', error);
+            } finally {
+                // --- Reset UI ---
+                outputContainer.classList.remove('hidden');
+                submitButton.disabled = false;
+                buttonText.textContent = 'Start Workflow';
+                iconSend.classList.remove('hidden');
+                iconLoading.classList.add('hidden');
+            }
+        });
+    </script>
+
+</body>
+</html>
+

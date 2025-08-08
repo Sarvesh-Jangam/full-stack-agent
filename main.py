@@ -1,5 +1,6 @@
 import logging
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware # Import the CORS middleware
 from pydantic import BaseModel
 import uvicorn
 
@@ -14,6 +15,21 @@ app = FastAPI(
     description="An API to interact with the multi-agent system.",
     version="1.0.0"
 )
+
+# --- FIX: Add CORS Middleware ---
+# This allows your frontend (running on a different origin) to communicate with this API.
+origins = [
+    "*", # In production, you should restrict this to your actual frontend domain
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"], # Allows all methods (GET, POST, etc.)
+    allow_headers=["*"], # Allows all headers
+)
+# --------------------------------
 
 # --- Pydantic models for API input and output ---
 class StartWorkflowRequest(BaseModel):
