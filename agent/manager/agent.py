@@ -2,6 +2,8 @@ import os
 import logging
 from typing import Dict, Any, List, Optional, Union
 from datetime import datetime
+import time
+
 import asyncio
 
 from google.adk.agents import Agent
@@ -10,6 +12,9 @@ from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService, VertexAiSessionService
 from google.genai import types
 from pydantic import BaseModel, Field
+from google.adk.events import Event
+from google.adk.events.event_actions import EventActions
+
 
 from .workflow_manager import WorkflowManager, IterationResult
 from .task_analyzer import TaskAnalyzer
@@ -95,34 +100,56 @@ class ManagerAgentRunner:
         self.workflow_manager = WorkflowManager(self.runner)
         logger.info(f"Manager Agent Runner initialized with app_name: {app_name}")
 
-    async def process_request(self,
-                            request: ManagerRequest,
-                            user_id: str = "default_user",
-                            session_id: str = "default_session") -> ManagerResponse:
+
+# ... other necessary imports from your file
+
+    async def process_request(
+                        self,
+                        request: ManagerRequest,
+                        user_id: str = "default_user",
+                        session_id: str = "default_session"
+                                                            ) -> ManagerResponse:
         start_time = datetime.utcnow()
         try:
             logger.info(f"Processing manager request: {request.action} for user: {user_id}")
+
             session_state = await self.get_session_state(user_id, session_id)
+
             if not session_state and request.action != "start_workflow":
-                 raise ValueError(f"Session not found: {session_id}")
+                raise ValueError(f"Session not found: {session_id}")
 
             if request.action == "start_workflow":
                 task_description = request.payload.get("task_description")
                 if not task_description:
                     raise ValueError("task_description is required for start_workflow")
+
                 iteration_result = await self.workflow_manager.start_new_workflow(task_description)
-                
-                # --- FIX: Corrected method name from update_session to update_session_state ---
-                await self.session_service.update_session_state(
+
+                # --- FIX: Update session state using an event with state_delta ---
+                actions_with_update = EventActions(state_delta={"workflow_id": iteration_result.workflow_id})
+
+                system_event = Event(
+                    invocation_id="workflow_start_update",
+                    author="system",
+                    actions=actions_with_update,
+                    timestamp=time.time()
+                )
+
+                # Get the current session
+                session = await self.session_service.get_session(
                     app_name=self.app_name,
                     user_id=user_id,
-                    session_id=session_id,
-                    state_to_merge={"workflow_id": iteration_result.workflow_id}
+                    session_id=session_id
                 )
+
+                # Append the event to update the session state
+                await self.session_service.append_event(session, system_event)
+
             else:
                 workflow_id = session_state.get("workflow_id")
                 if not workflow_id:
                     raise ValueError("workflow_id not found in session")
+
                 iteration_result = await self.workflow_manager.run_iteration(workflow_id)
 
             return ManagerResponse(
@@ -132,14 +159,19 @@ class ManagerAgentRunner:
                 next_actions=iteration_result.next_actions,
                 artifacts=iteration_result.artifacts,
                 validation_score=iteration_result.validation_score,
-                progress_percentage=iteration_result.progress_percentage
+                progress_percentage=iteration_result.progress_percentage,
+                timestamp=datetime.utcnow()
             )
+
         except Exception as e:
             logger.error(f"Error processing manager request: {str(e)}")
             return ManagerResponse(
                 status="error",
                 workflow_id="unknown",
-                message=f"Error processing request: {str(e)}"
+                message=f"Error processing request: {str(e)}",
+                next_actions=[],
+                artifacts={},
+                timestamp=datetime.utcnow()
             )
 
     async def create_session(self, user_id: str, session_id: str, initial_state: Dict[str, Any] = None):
@@ -178,3 +210,4 @@ async def process_manager_request(request: ManagerRequest,
                                 session_id: str = "default_session") -> ManagerResponse:
     """Convenience function to process a manager request"""
     return await default_runner.process_request(request, user_id, session_id)
+

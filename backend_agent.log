@@ -83,3 +83,310 @@
 2025-08-07 13:57:31,454 - agent.manager.workflow_manager - INFO - Started new workflow 70e469cc-becd-4110-879a-dec1dc37036e for task: Create a full-stack web application.
 2025-08-07 13:57:31,455 - agent.manager.workflow_manager - INFO - [70e469cc-becd-4110-879a-dec1dc37036e] Analyzing task...
 2025-08-07 13:57:31,455 - agent.manager.agent - ERROR - Error processing manager request: 'InMemorySessionService' object has no attribute 'update_session_state'
+2025-08-07 22:30:48,522 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-07 22:30:48,523 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-07 22:30:48,523 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-07 22:30:48,523 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-07 22:30:48,523 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-07 22:30:48,524 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-07 22:30:48,542 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-07 22:30:48,543 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-07 22:30:48,543 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-07 22:30:48,543 - agent.manager.workflow_manager - INFO - Workflow Manager initialized
+2025-08-07 22:30:48,544 - agent.manager.agent - INFO - Manager Agent Runner initialized with app_name: manager_agent_app
+2025-08-07 22:30:48,545 - agent.manager.agent - INFO - Session created: default_session for user: default_user
+2025-08-07 22:30:48,546 - agent.manager.agent - INFO - Processing manager request: start_workflow for user: default_user
+2025-08-07 22:30:48,546 - agent.manager.workflow_manager - INFO - Started new workflow a6df389c-e7fd-4595-9267-b94d914e92c2 for task: Create a full-stack web application.
+2025-08-07 22:30:48,546 - agent.manager.workflow_manager - INFO - [a6df389c-e7fd-4595-9267-b94d914e92c2] Analyzing task...
+2025-08-07 22:30:48,547 - agent.manager.agent - ERROR - Error processing manager request: 'InMemorySessionService' object has no attribute 'update_session_state'
+2025-08-07 22:34:19,441 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-07 22:34:19,441 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-07 22:34:19,441 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-07 22:34:19,442 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-07 22:34:19,442 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-07 22:34:19,442 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-07 22:34:19,466 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-07 22:34:19,466 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-07 22:34:19,466 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-07 22:34:19,467 - agent.manager.workflow_manager - INFO - Workflow Manager initialized
+2025-08-07 22:34:19,468 - agent.manager.agent - INFO - Manager Agent Runner initialized with app_name: manager_agent_app
+2025-08-07 22:34:19,469 - agent.manager.agent - INFO - Session created: default_session for user: default_user
+2025-08-07 22:34:19,470 - agent.manager.agent - INFO - Processing manager request: start_workflow for user: default_user
+2025-08-07 22:34:19,470 - agent.manager.workflow_manager - INFO - Started new workflow 7a723e76-c76f-4585-ac47-ae2bfd20f8ac for task: Create a full-stack web application.
+2025-08-07 22:34:19,470 - agent.manager.workflow_manager - INFO - [7a723e76-c76f-4585-ac47-ae2bfd20f8ac] Analyzing task...
+2025-08-07 22:34:19,471 - agent.manager.agent - ERROR - Error processing manager request: 'InMemorySessionService' object has no attribute '__update_session_state__'
+2025-08-07 22:39:00,943 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-07 22:39:00,944 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-07 22:39:00,944 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-07 22:39:00,944 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-07 22:39:00,944 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-07 22:39:00,945 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-07 22:39:00,964 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-07 22:39:00,964 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-07 22:39:00,964 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-07 22:39:00,964 - agent.manager.workflow_manager - INFO - Workflow Manager initialized
+2025-08-07 22:39:00,965 - agent.manager.agent - INFO - Manager Agent Runner initialized with app_name: manager_agent_app
+2025-08-07 22:39:00,967 - agent.manager.agent - INFO - Session created: default_session for user: default_user
+2025-08-07 22:39:00,969 - agent.manager.agent - INFO - Processing manager request: start_workflow for user: default_user
+2025-08-07 22:39:00,970 - agent.manager.workflow_manager - INFO - Started new workflow 45457245-3ac5-4b2b-9f4d-3c242e66aa92 for task: Create a full-stack web application.
+2025-08-07 22:39:00,970 - agent.manager.workflow_manager - INFO - [45457245-3ac5-4b2b-9f4d-3c242e66aa92] Analyzing task...
+2025-08-07 22:39:00,970 - agent.manager.agent - ERROR - Error processing manager request: 'InMemorySessionService' object has no attribute '_ManagerAgentRunner__update_session'
+2025-08-07 22:40:13,146 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-07 22:40:13,146 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-07 22:40:13,147 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-07 22:40:13,147 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-07 22:40:13,148 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-07 22:40:13,148 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-07 22:40:13,171 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-07 22:40:13,172 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-07 22:40:13,172 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-07 22:40:13,173 - agent.manager.workflow_manager - INFO - Workflow Manager initialized
+2025-08-07 22:40:13,174 - agent.manager.agent - INFO - Manager Agent Runner initialized with app_name: manager_agent_app
+2025-08-07 22:40:13,176 - agent.manager.agent - INFO - Session created: default_session for user: default_user
+2025-08-07 22:40:13,176 - agent.manager.agent - INFO - Processing manager request: start_workflow for user: default_user
+2025-08-07 22:40:13,177 - agent.manager.workflow_manager - INFO - Started new workflow b0355414-7480-4024-8423-41d018057fdf for task: Create a full-stack web application.
+2025-08-07 22:40:13,177 - agent.manager.workflow_manager - INFO - [b0355414-7480-4024-8423-41d018057fdf] Analyzing task...
+2025-08-07 22:40:13,178 - agent.manager.agent - ERROR - Error processing manager request: 'InMemorySessionService' object has no attribute '_ManagerAgentRunner__update_session_state'
+2025-08-07 22:42:15,727 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-07 22:42:15,728 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-07 22:42:15,728 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-07 22:42:15,728 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-07 22:42:15,729 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-07 22:42:15,729 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-07 22:42:15,753 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-07 22:42:15,753 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-07 22:42:15,754 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-07 22:42:15,754 - agent.manager.workflow_manager - INFO - Workflow Manager initialized
+2025-08-07 22:42:15,755 - agent.manager.agent - INFO - Manager Agent Runner initialized with app_name: manager_agent_app
+2025-08-07 22:42:15,756 - agent.manager.agent - INFO - Session created: default_session for user: default_user
+2025-08-07 22:42:15,756 - agent.manager.agent - INFO - Processing manager request: start_workflow for user: default_user
+2025-08-07 22:42:15,757 - agent.manager.workflow_manager - INFO - Started new workflow f4c332ab-3873-4afa-99ce-37b1f1c7a147 for task: Create a full-stack web application.
+2025-08-07 22:42:15,757 - agent.manager.workflow_manager - INFO - [f4c332ab-3873-4afa-99ce-37b1f1c7a147] Analyzing task...
+2025-08-07 22:42:15,757 - agent.manager.agent - ERROR - Error processing manager request: 'InMemorySessionService' object has no attribute 'update_session_state'
+2025-08-07 22:51:01,801 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-07 22:51:01,801 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-07 22:51:01,801 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-07 22:51:01,802 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-07 22:51:01,802 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-07 22:51:01,803 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-07 22:51:01,828 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-07 22:51:01,828 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-07 22:51:01,828 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-07 22:51:01,829 - agent.manager.workflow_manager - INFO - Workflow Manager initialized
+2025-08-07 22:51:01,829 - agent.manager.agent - INFO - Manager Agent Runner initialized with app_name: manager_agent_app
+2025-08-07 22:51:01,831 - agent.manager.agent - INFO - Session created: default_session for user: default_user
+2025-08-07 22:51:01,831 - agent.manager.agent - INFO - Processing manager request: start_workflow for user: default_user
+2025-08-07 22:51:01,832 - agent.manager.workflow_manager - INFO - Started new workflow 22a42796-be36-4ffb-9e4b-7ab26f96f44c for task: Create a full-stack web application.
+2025-08-07 22:51:01,832 - agent.manager.workflow_manager - INFO - [22a42796-be36-4ffb-9e4b-7ab26f96f44c] Analyzing task...
+2025-08-07 22:51:01,832 - agent.manager.agent - ERROR - Error processing manager request: 'Runner' object has no attribute 'update_session_state'
+2025-08-07 23:14:03,660 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-07 23:14:03,661 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-07 23:14:03,661 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-07 23:14:03,661 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-07 23:14:03,662 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-07 23:14:03,662 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-07 23:14:03,692 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-07 23:14:03,692 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-07 23:14:03,693 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-07 23:14:03,694 - agent.manager.workflow_manager - INFO - Workflow Manager initialized
+2025-08-07 23:14:03,694 - agent.manager.agent - INFO - Manager Agent Runner initialized with app_name: manager_agent_app
+2025-08-07 23:14:03,697 - agent.manager.agent - INFO - Session created: default_session for user: default_user
+2025-08-07 23:14:03,697 - agent.manager.agent - INFO - Processing manager request: start_workflow for user: default_user
+2025-08-07 23:14:03,698 - agent.manager.workflow_manager - INFO - Started new workflow 6a468c40-906b-40b2-8344-4fd0aedb7d71 for task: Create a full-stack web application.
+2025-08-07 23:14:03,699 - agent.manager.workflow_manager - INFO - [6a468c40-906b-40b2-8344-4fd0aedb7d71] Analyzing task...
+2025-08-07 23:21:33,858 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-07 23:21:33,859 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-07 23:21:33,859 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-07 23:21:33,860 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-07 23:21:33,860 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-07 23:21:33,861 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-07 23:21:33,890 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-07 23:21:33,891 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-07 23:21:33,891 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-07 23:21:33,892 - agent.manager.workflow_manager - INFO - Workflow Manager initialized
+2025-08-07 23:21:33,892 - agent.manager.agent - INFO - Manager Agent Runner initialized with app_name: manager_agent_app
+2025-08-07 23:21:33,896 - root - INFO - --- Creating Session ---
+2025-08-07 23:21:33,897 - agent.manager.agent - INFO - Session created: default_session for user: default_user
+2025-08-07 23:21:33,897 - root - INFO - Session 'default_session' created for user 'default_user'.
+2025-08-07 23:21:33,897 - root - INFO - 
+--- Starting Workflow ---
+2025-08-07 23:21:33,898 - agent.manager.agent - INFO - Processing manager request: start_workflow for user: default_user
+2025-08-07 23:21:33,898 - agent.manager.workflow_manager - INFO - Started new workflow c3b74918-bd7a-46e4-8695-3d858cd6fe68 for task: Create a full-stack web application with a user database and a simple UI.
+2025-08-07 23:21:33,898 - agent.manager.workflow_manager - INFO - [c3b74918-bd7a-46e4-8695-3d858cd6fe68] Analyzing task...
+2025-08-07 23:21:33,904 - root - INFO - Workflow started. Response: {
+  "status": "planning_complete",
+  "workflow_id": "c3b74918-bd7a-46e4-8695-3d858cd6fe68",
+  "data": null,
+  "message": "Task analyzed. Plan created.",
+  "next_actions": [
+    "delegate_next_task"
+  ],
+  "artifacts": {},
+  "validation_score": 0.0,
+  "progress_percentage": 10,
+  "timestamp": "2025-08-07T17:51:33.899808"
+}
+2025-08-07 23:21:33,905 - root - INFO - 
+--- Workflow Iteration 1 (Status: planning_complete) ---
+2025-08-07 23:21:33,905 - root - INFO - Executing next action: 'delegate_next_task'
+2025-08-07 23:21:33,906 - agent.manager.agent - INFO - Processing manager request: delegate_next_task for user: default_user
+2025-08-07 23:21:33,906 - agent.manager.workflow_manager - INFO - [c3b74918-bd7a-46e4-8695-3d858cd6fe68] Delegating step 1: Setup database
+2025-08-07 23:21:33,907 - root - INFO - Iteration response: {
+  "status": "step_1_complete",
+  "workflow_id": "c3b74918-bd7a-46e4-8695-3d858cd6fe68",
+  "data": null,
+  "message": "Step 1 completed.",
+  "next_actions": [
+    "delegate_next_task",
+    "validate_artifacts"
+  ],
+  "artifacts": {
+    "step_1": "artifact_step_1.txt"
+  },
+  "validation_score": 0.0,
+  "progress_percentage": 50,
+  "timestamp": "2025-08-07T17:51:33.907086"
+}
+2025-08-07 23:21:34,920 - root - INFO - 
+--- Workflow Iteration 2 (Status: step_1_complete) ---
+2025-08-07 23:21:34,921 - root - INFO - Executing next action: 'delegate_next_task'
+2025-08-07 23:21:34,921 - agent.manager.agent - INFO - Processing manager request: delegate_next_task for user: default_user
+2025-08-07 23:21:34,921 - agent.manager.workflow_manager - INFO - [c3b74918-bd7a-46e4-8695-3d858cd6fe68] Delegating step 2: Create UI mockups
+2025-08-07 23:21:34,922 - root - INFO - Iteration response: {
+  "status": "step_2_complete",
+  "workflow_id": "c3b74918-bd7a-46e4-8695-3d858cd6fe68",
+  "data": null,
+  "message": "Step 2 completed.",
+  "next_actions": [
+    "delegate_next_task",
+    "validate_artifacts"
+  ],
+  "artifacts": {
+    "step_1": "artifact_step_1.txt",
+    "step_2": "artifact_step_2.txt"
+  },
+  "validation_score": 0.0,
+  "progress_percentage": 100,
+  "timestamp": "2025-08-07T17:51:34.922056"
+}
+2025-08-07 23:21:35,929 - root - INFO - 
+--- Workflow Iteration 3 (Status: step_2_complete) ---
+2025-08-07 23:21:35,930 - root - INFO - Executing next action: 'delegate_next_task'
+2025-08-07 23:21:35,931 - agent.manager.agent - INFO - Processing manager request: delegate_next_task for user: default_user
+2025-08-07 23:21:35,932 - agent.manager.workflow_manager - INFO - [c3b74918-bd7a-46e4-8695-3d858cd6fe68] Workflow completed.
+2025-08-07 23:21:35,935 - root - INFO - Iteration response: {
+  "status": "completed",
+  "workflow_id": "c3b74918-bd7a-46e4-8695-3d858cd6fe68",
+  "data": null,
+  "message": "All workflow steps completed successfully.",
+  "next_actions": [],
+  "artifacts": {
+    "step_1": "artifact_step_1.txt",
+    "step_2": "artifact_step_2.txt"
+  },
+  "validation_score": 0.0,
+  "progress_percentage": 100,
+  "timestamp": "2025-08-07T17:51:35.933355"
+}
+2025-08-07 23:21:36,950 - root - INFO - 
+--- Workflow Finished ---
+2025-08-07 23:21:36,951 - root - INFO - Workflow completed successfully!
+2025-08-07 23:21:36,952 - root - INFO - Final artifacts: {'step_1': 'artifact_step_1.txt', 'step_2': 'artifact_step_2.txt'}
+2025-08-08 12:07:13,260 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-08 12:07:13,260 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-08 12:07:13,261 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-08 12:07:13,261 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-08 12:07:13,261 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-08 12:07:13,262 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-08 12:07:13,286 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-08 12:07:13,287 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-08 12:07:13,287 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-08 12:07:13,287 - agent.manager.workflow_manager - INFO - Workflow Manager initialized
+2025-08-08 12:07:13,287 - agent.manager.agent - INFO - Manager Agent Runner initialized with app_name: manager_agent_app
+2025-08-08 12:07:13,306 - root - INFO - --- Creating Session ---
+2025-08-08 12:07:13,307 - agent.manager.agent - INFO - Session created: default_session for user: default_user
+2025-08-08 12:07:13,307 - root - INFO - Session 'default_session' created for user 'default_user'.
+2025-08-08 12:07:13,307 - root - INFO - 
+--- Starting Workflow ---
+2025-08-08 12:07:13,308 - agent.manager.agent - INFO - Processing manager request: start_workflow for user: default_user
+2025-08-08 12:07:13,308 - agent.manager.workflow_manager - INFO - Started new workflow e7a18724-2f33-407b-a494-4b58398a7c77 for task: Create a full-stack web application with a user database and a simple UI.
+2025-08-08 12:07:13,308 - agent.manager.workflow_manager - INFO - [e7a18724-2f33-407b-a494-4b58398a7c77] Analyzing task...
+2025-08-08 12:07:13,310 - root - INFO - Workflow started. Response: {
+  "status": "planning_complete",
+  "workflow_id": "e7a18724-2f33-407b-a494-4b58398a7c77",
+  "data": null,
+  "message": "Task analyzed. Plan created.",
+  "next_actions": [
+    "delegate_next_task"
+  ],
+  "artifacts": {},
+  "validation_score": 0.0,
+  "progress_percentage": 10,
+  "timestamp": "2025-08-08T06:37:13.309324"
+}
+2025-08-08 12:07:13,310 - root - INFO - 
+--- Workflow Iteration 1 (Status: planning_complete) ---
+2025-08-08 12:07:13,310 - root - INFO - Executing next action: 'delegate_next_task'
+2025-08-08 12:07:13,311 - agent.manager.agent - INFO - Processing manager request: delegate_next_task for user: default_user
+2025-08-08 12:07:13,311 - agent.manager.workflow_manager - INFO - [e7a18724-2f33-407b-a494-4b58398a7c77] Delegating step 1: Setup database
+2025-08-08 12:07:13,311 - root - INFO - Iteration response: {
+  "status": "step_1_complete",
+  "workflow_id": "e7a18724-2f33-407b-a494-4b58398a7c77",
+  "data": null,
+  "message": "Step 1 completed.",
+  "next_actions": [
+    "delegate_next_task",
+    "validate_artifacts"
+  ],
+  "artifacts": {
+    "step_1": "artifact_step_1.txt"
+  },
+  "validation_score": 0.0,
+  "progress_percentage": 50,
+  "timestamp": "2025-08-08T06:37:13.311312"
+}
+2025-08-08 12:07:14,314 - root - INFO - 
+--- Workflow Iteration 2 (Status: step_1_complete) ---
+2025-08-08 12:07:14,315 - root - INFO - Executing next action: 'delegate_next_task'
+2025-08-08 12:07:14,315 - agent.manager.agent - INFO - Processing manager request: delegate_next_task for user: default_user
+2025-08-08 12:07:14,316 - agent.manager.workflow_manager - INFO - [e7a18724-2f33-407b-a494-4b58398a7c77] Delegating step 2: Create UI mockups
+2025-08-08 12:07:14,316 - root - INFO - Iteration response: {
+  "status": "step_2_complete",
+  "workflow_id": "e7a18724-2f33-407b-a494-4b58398a7c77",
+  "data": null,
+  "message": "Step 2 completed.",
+  "next_actions": [
+    "delegate_next_task",
+    "validate_artifacts"
+  ],
+  "artifacts": {
+    "step_1": "artifact_step_1.txt",
+    "step_2": "artifact_step_2.txt"
+  },
+  "validation_score": 0.0,
+  "progress_percentage": 100,
+  "timestamp": "2025-08-08T06:37:14.316788"
+}
+2025-08-08 12:07:15,325 - root - INFO - 
+--- Workflow Iteration 3 (Status: step_2_complete) ---
+2025-08-08 12:07:15,325 - root - INFO - Executing next action: 'delegate_next_task'
+2025-08-08 12:07:15,326 - agent.manager.agent - INFO - Processing manager request: delegate_next_task for user: default_user
+2025-08-08 12:07:15,326 - agent.manager.workflow_manager - INFO - [e7a18724-2f33-407b-a494-4b58398a7c77] Workflow completed.
+2025-08-08 12:07:15,326 - root - INFO - Iteration response: {
+  "status": "completed",
+  "workflow_id": "e7a18724-2f33-407b-a494-4b58398a7c77",
+  "data": null,
+  "message": "All workflow steps completed successfully.",
+  "next_actions": [],
+  "artifacts": {
+    "step_1": "artifact_step_1.txt",
+    "step_2": "artifact_step_2.txt"
+  },
+  "validation_score": 0.0,
+  "progress_percentage": 100,
+  "timestamp": "2025-08-08T06:37:15.326884"
+}
+2025-08-08 12:07:16,333 - root - INFO - 
+--- Workflow Finished ---
+2025-08-08 12:07:16,334 - root - INFO - Workflow completed successfully!
+2025-08-08 12:07:16,335 - root - INFO - Final artifacts: {'step_1': 'artifact_step_1.txt', 'step_2': 'artifact_step_2.txt'}
