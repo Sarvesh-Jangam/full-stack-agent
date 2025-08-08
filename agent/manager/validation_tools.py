@@ -290,7 +290,7 @@ class ValidationTool:
                 score_components.append(0.3)
                 details["has_js"] = True
             else:
-                # JavaScript might not be required for all projects
+                # JavaScript might not be required for all projects 
                 score_components.append(0.2)
                 details["has_js"] = False
         

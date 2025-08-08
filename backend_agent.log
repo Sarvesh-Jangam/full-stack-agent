@@ -390,3 +390,234 @@
 --- Workflow Finished ---
 2025-08-08 12:07:16,334 - root - INFO - Workflow completed successfully!
 2025-08-08 12:07:16,335 - root - INFO - Final artifacts: {'step_1': 'artifact_step_1.txt', 'step_2': 'artifact_step_2.txt'}
+2025-08-08 13:28:30,311 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-08 13:28:30,311 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-08 13:28:30,311 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-08 13:28:30,312 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-08 13:28:30,312 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-08 13:28:30,313 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-08 13:28:30,355 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-08 13:28:30,355 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-08 13:28:30,356 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-08 13:28:30,357 - agent.manager.workflow_manager - INFO - Workflow Manager initialized
+2025-08-08 13:28:30,357 - agent.manager.agent - INFO - Manager Agent Runner initialized with app_name: manager_agent_app
+2025-08-08 13:28:30,360 - root - INFO - --- Creating Session ---
+2025-08-08 13:28:30,361 - agent.manager.agent - INFO - Session created: default_session for user: default_user
+2025-08-08 13:28:30,361 - root - INFO - Session 'default_session' created for user 'default_user'.
+2025-08-08 13:28:30,362 - root - INFO - 
+--- Starting Workflow ---
+2025-08-08 13:28:30,362 - agent.manager.agent - INFO - Processing manager request: start_workflow for user: default_user
+2025-08-08 13:28:30,362 - agent.manager.workflow_manager - INFO - Started new workflow f86dc6be-9baf-4854-88c2-b63fbcd02db8 for task: Create a full-stack web application with a user database and a simple UI.
+2025-08-08 13:28:30,363 - agent.manager.workflow_manager - INFO - [f86dc6be-9baf-4854-88c2-b63fbcd02db8] Analyzing task...
+2025-08-08 13:28:30,363 - root - INFO - Workflow started. Response: {
+  "status": "planning_complete",
+  "workflow_id": "f86dc6be-9baf-4854-88c2-b63fbcd02db8",
+  "data": null,
+  "message": "Task analyzed. Plan created.",
+  "next_actions": [
+    "delegate_next_task"
+  ],
+  "artifacts": {},
+  "validation_score": 0.0,
+  "progress_percentage": 10,
+  "timestamp": "2025-08-08T07:58:30.363516"
+}
+2025-08-08 13:28:30,363 - root - INFO - 
+--- Workflow Iteration 1 (Status: planning_complete) ---
+2025-08-08 13:28:30,364 - root - INFO - Executing next action: 'delegate_next_task'
+2025-08-08 13:28:30,364 - agent.manager.agent - INFO - Processing manager request: delegate_next_task for user: default_user
+2025-08-08 13:28:30,365 - agent.manager.workflow_manager - INFO - [f86dc6be-9baf-4854-88c2-b63fbcd02db8] Delegating step 1: Setup database
+2025-08-08 13:28:30,365 - root - INFO - Iteration response: {
+  "status": "step_1_complete",
+  "workflow_id": "f86dc6be-9baf-4854-88c2-b63fbcd02db8",
+  "data": null,
+  "message": "Step 1 completed.",
+  "next_actions": [
+    "delegate_next_task",
+    "validate_artifacts"
+  ],
+  "artifacts": {
+    "step_1": "artifact_step_1.txt"
+  },
+  "validation_score": 0.0,
+  "progress_percentage": 50,
+  "timestamp": "2025-08-08T07:58:30.365490"
+}
+2025-08-08 13:28:31,381 - root - INFO - 
+--- Workflow Iteration 2 (Status: step_1_complete) ---
+2025-08-08 13:28:31,381 - root - INFO - Executing next action: 'delegate_next_task'
+2025-08-08 13:28:31,382 - agent.manager.agent - INFO - Processing manager request: delegate_next_task for user: default_user
+2025-08-08 13:28:31,382 - agent.manager.workflow_manager - INFO - [f86dc6be-9baf-4854-88c2-b63fbcd02db8] Delegating step 2: Create UI mockups
+2025-08-08 13:28:31,383 - root - INFO - Iteration response: {
+  "status": "step_2_complete",
+  "workflow_id": "f86dc6be-9baf-4854-88c2-b63fbcd02db8",
+  "data": null,
+  "message": "Step 2 completed.",
+  "next_actions": [
+    "delegate_next_task",
+    "validate_artifacts"
+  ],
+  "artifacts": {
+    "step_1": "artifact_step_1.txt",
+    "step_2": "artifact_step_2.txt"
+  },
+  "validation_score": 0.0,
+  "progress_percentage": 100,
+  "timestamp": "2025-08-08T07:58:31.383179"
+}
+2025-08-08 13:28:32,393 - root - INFO - 
+--- Workflow Iteration 3 (Status: step_2_complete) ---
+2025-08-08 13:28:32,394 - root - INFO - Executing next action: 'delegate_next_task'
+2025-08-08 13:28:32,394 - agent.manager.agent - INFO - Processing manager request: delegate_next_task for user: default_user
+2025-08-08 13:28:32,394 - agent.manager.workflow_manager - INFO - [f86dc6be-9baf-4854-88c2-b63fbcd02db8] Workflow completed.
+2025-08-08 13:28:32,395 - root - INFO - Iteration response: {
+  "status": "completed",
+  "workflow_id": "f86dc6be-9baf-4854-88c2-b63fbcd02db8",
+  "data": null,
+  "message": "All workflow steps completed successfully.",
+  "next_actions": [],
+  "artifacts": {
+    "step_1": "artifact_step_1.txt",
+    "step_2": "artifact_step_2.txt"
+  },
+  "validation_score": 0.0,
+  "progress_percentage": 100,
+  "timestamp": "2025-08-08T07:58:32.395159"
+}
+2025-08-08 13:28:33,408 - root - INFO - 
+--- Workflow Finished ---
+2025-08-08 13:28:33,409 - root - INFO - Workflow completed successfully!
+2025-08-08 13:28:33,411 - root - INFO - Final artifacts: {'step_1': 'artifact_step_1.txt', 'step_2': 'artifact_step_2.txt'}
+
+
+2025-08-08 13:51:23,522 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-08 13:51:23,523 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-08 13:51:23,523 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-08 13:51:23,524 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-08 13:51:23,524 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-08 13:51:23,525 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-08 13:51:23,543 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-08 13:51:23,544 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-08 13:51:23,544 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-08 13:51:23,544 - agent.manager.workflow_manager - INFO - Workflow Manager initialized
+2025-08-08 13:51:23,545 - agent.manager.agent - INFO - Manager Agent Runner initialized with app_name: manager_agent_app
+2025-08-08 13:51:23,546 - root - INFO - --- Creating Session ---
+2025-08-08 13:51:23,547 - agent.manager.agent - INFO - Session created: default_session for user: default_user
+2025-08-08 13:51:23,547 - root - INFO - Session 'default_session' created for user 'default_user'.
+2025-08-08 13:51:23,547 - root - INFO - 
+--- Starting Workflow ---
+2025-08-08 13:51:23,547 - agent.manager.agent - INFO - Processing manager request: start_workflow for user: default_user
+2025-08-08 13:51:23,547 - agent.manager.workflow_manager - INFO - Started new workflow 1b65a2e0-42aa-4cf5-bf8e-b7c928cc8b74 for task: Create a full-stack web application with a user database and a simple UI.
+2025-08-08 13:51:23,548 - agent.manager.workflow_manager - INFO - [1b65a2e0-42aa-4cf5-bf8e-b7c928cc8b74] Analyzing task...
+2025-08-08 13:51:23,548 - root - INFO - Workflow started. Response: {
+  "status": "planning_complete",
+  "workflow_id": "1b65a2e0-42aa-4cf5-bf8e-b7c928cc8b74",
+  "data": null,
+  "message": "Task analyzed. Plan created.",
+  "next_actions": [
+    "delegate_next_task"
+  ],
+  "artifacts": {},
+  "validation_score": 0.0,
+  "progress_percentage": 10,
+  "timestamp": "2025-08-08T08:21:23.548465"
+}
+2025-08-08 13:51:23,548 - root - INFO - 
+--- Workflow Iteration 1 (Status: planning_complete) ---
+2025-08-08 13:51:23,549 - root - INFO - Executing next action: 'delegate_next_task'
+2025-08-08 13:51:23,549 - agent.manager.agent - INFO - Processing manager request: delegate_next_task for user: default_user
+2025-08-08 13:51:23,550 - agent.manager.workflow_manager - INFO - [1b65a2e0-42aa-4cf5-bf8e-b7c928cc8b74] Delegating step 1: Setup database
+2025-08-08 13:51:23,551 - root - INFO - Iteration response: {
+  "status": "step_1_complete",
+  "workflow_id": "1b65a2e0-42aa-4cf5-bf8e-b7c928cc8b74",
+  "data": null,
+  "message": "Step 1 completed.",
+  "next_actions": [
+    "delegate_next_task",
+    "validate_artifacts"
+  ],
+  "artifacts": {
+    "step_1": "artifact_step_1.txt"
+  },
+  "validation_score": 0.0,
+  "progress_percentage": 50,
+  "timestamp": "2025-08-08T08:21:23.550992"
+}
+2025-08-08 13:51:24,562 - root - INFO - 
+--- Workflow Iteration 2 (Status: step_1_complete) ---
+2025-08-08 13:51:24,562 - root - INFO - Executing next action: 'delegate_next_task'
+2025-08-08 13:51:24,564 - agent.manager.agent - INFO - Processing manager request: delegate_next_task for user: default_user
+2025-08-08 13:51:24,564 - agent.manager.workflow_manager - INFO - [1b65a2e0-42aa-4cf5-bf8e-b7c928cc8b74] Delegating step 2: Create UI mockups
+2025-08-08 13:51:24,564 - root - INFO - Iteration response: {
+  "status": "step_2_complete",
+  "workflow_id": "1b65a2e0-42aa-4cf5-bf8e-b7c928cc8b74",
+  "data": null,
+  "message": "Step 2 completed.",
+  "next_actions": [
+    "delegate_next_task",
+    "validate_artifacts"
+  ],
+  "artifacts": {
+    "step_1": "artifact_step_1.txt",
+    "step_2": "artifact_step_2.txt"
+  },
+  "validation_score": 0.0,
+  "progress_percentage": 100,
+  "timestamp": "2025-08-08T08:21:24.564638"
+}
+2025-08-08 13:51:25,568 - root - INFO - 
+--- Workflow Iteration 3 (Status: step_2_complete) ---
+2025-08-08 13:51:25,571 - root - INFO - Executing next action: 'delegate_next_task'
+2025-08-08 13:51:25,573 - agent.manager.agent - INFO - Processing manager request: delegate_next_task for user: default_user
+2025-08-08 13:51:25,574 - agent.manager.workflow_manager - INFO - [1b65a2e0-42aa-4cf5-bf8e-b7c928cc8b74] Workflow completed.
+2025-08-08 13:51:25,575 - root - INFO - Iteration response: {
+  "status": "completed",
+  "workflow_id": "1b65a2e0-42aa-4cf5-bf8e-b7c928cc8b74",
+  "data": null,
+  "message": "All workflow steps completed successfully.",
+  "next_actions": [],
+  "artifacts": {
+    "step_1": "artifact_step_1.txt",
+    "step_2": "artifact_step_2.txt"
+  },
+  "validation_score": 0.0,
+  "progress_percentage": 100,
+  "timestamp": "2025-08-08T08:21:25.575257"
+}
+2025-08-08 13:51:26,580 - root - INFO - 
+--- Workflow Finished ---
+2025-08-08 13:51:26,582 - root - INFO - Workflow completed successfully!
+2025-08-08 13:51:26,584 - root - INFO - Final artifacts: {'step_1': 'artifact_step_1.txt', 'step_2': 'artifact_step_2.txt'}
+2025-08-08 15:16:20,817 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-08 15:16:20,817 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-08 15:16:20,818 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-08 15:16:20,818 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-08 15:16:20,818 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-08 15:16:20,818 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-08 15:16:20,844 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-08 15:16:20,844 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-08 15:16:20,844 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-08 15:16:20,844 - agent.manager.workflow_manager - INFO - Workflow Manager initialized
+2025-08-08 15:16:20,845 - agent.manager.agent - INFO - Manager Agent Runner initialized with app_name: manager_agent_app
+2025-08-08 15:16:26,850 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-08 15:16:26,850 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-08 15:16:26,851 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-08 15:16:26,851 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-08 15:16:26,851 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-08 15:16:26,851 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-08 15:16:26,878 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-08 15:16:26,878 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-08 15:16:26,879 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-08 15:16:26,879 - agent.manager.workflow_manager - INFO - Workflow Manager initialized
+2025-08-08 15:16:26,880 - agent.manager.agent - INFO - Manager Agent Runner initialized with app_name: manager_agent_app
+2025-08-08 15:18:49,791 - agent.backend.tools.database_tools - INFO - Database engine and session factory created
+2025-08-08 15:18:49,791 - agent.backend.tools.database_tools - INFO - Database tool initialized
+2025-08-08 15:18:49,792 - agent.backend.tools.api_tools - INFO - API integration tool initialized
+2025-08-08 15:18:49,792 - agent.backend.tools.auth_tools - INFO - Authentication tool initialized
+2025-08-08 15:18:49,792 - agent.backend.tools.file_tools - INFO - File processing tool initialized - Upload dir: uploads
+2025-08-08 15:18:49,793 - agent.backend.agent - INFO - Backend Agent Runner initialized with app_name: backend_agent_app
+2025-08-08 15:18:49,830 - agent.manager.task_analyzer - INFO - Task Analyzer initialized
+2025-08-08 15:18:49,831 - agent.manager.coordination_tools - INFO - Coordination tool initialized
+2025-08-08 15:18:49,831 - agent.manager.validation_tools - INFO - Validation tool initialized
+2025-08-08 15:18:49,832 - agent.manager.workflow_manager - INFO - Workflow Manager initialized
+2025-08-08 15:18:49,833 - agent.manager.agent - INFO - Manager Agent Runner initialized with app_name: manager_agent_app

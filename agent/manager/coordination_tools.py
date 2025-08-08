@@ -85,7 +85,7 @@ class CoordinationTool:
         # self.backend_agent_client = ...
         logger.info("Coordination tool initialized")
 
-    async def delegate_task(self, agent_name: str, task: str, dependencies: Dict[str, Any] = None) -> Dict[str, Any]:
+    async def delegate_task(self, agent_name: str, task: str, dependencies: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """
         Delegates a task to a specified agent.
         """
